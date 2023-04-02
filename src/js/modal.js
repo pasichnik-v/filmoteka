@@ -21,7 +21,15 @@ function addMovie(evt) {
       year,
       vote,
     };
-    watchedArray.push(newObject);
+    
+    if (evt.target.textContent === 'add to Watched') {
+      watchedArray.push(newObject);
+    evt.target.textContent = 'remove from Watched';
+    } else {
+    watchedArray.splice(watchedArray.indexOf(newObject), 1)
+    evt.target.textContent = 'add to Watched';
+  }
+   
   }
   if (evt.target.classList.contains('add-queue')) {
     const newObject = {
@@ -31,7 +39,14 @@ function addMovie(evt) {
       year,
       vote,
     };
-    queueArray.push(newObject);
+    
+    if (evt.target.textContent === 'add to queue') {
+        queueArray.push(newObject);
+    evt.target.textContent = 'remove from queue';
+    } else {
+    queueArray.splice(queueArray.indexOf(newObject), 1);
+    evt.target.textContent = 'add to queue';
+  }
   }
 }
 
